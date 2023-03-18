@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'details_page.dart';
-import 'model.dart';
+import '../../model/model.dart';
 
 class SearchPage extends StatefulWidget {
   final productList;

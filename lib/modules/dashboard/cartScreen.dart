@@ -5,8 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zing/order_screen.dart';
-import 'model.dart';
+import 'package:zing/modules/dashboard/order_screen.dart';
+import '../../model/model.dart';
 
 class CartScreen extends StatefulWidget {
   final whareItComes;

@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zing/cartScreen.dart';
-import 'package:zing/model.dart';
+import 'package:zing/modules/dashboard/cartScreen.dart';
+import 'package:zing/model/model.dart';
+
+import '../../utilities/lists.dart';
 
 class ProductDetails extends StatefulWidget {
   final description;
@@ -28,18 +30,9 @@ class ProductDetails extends StatefulWidget {
   State<ProductDetails> createState() => _ProductDetailsState();
 }
 
-class _ProductDetailsState extends State<ProductDetails> {
 
-  List<DetailScreenOffers> detailScreenOffers = [
-    DetailScreenOffers(
-        'Cashback', "Get ₹20 cashback if you buy with other items in cart."),
-    DetailScreenOffers('No Cost EMI',
-        "Upto ₹211.46 EMI interest saving on Zing Pay ICICI offer."),
-    DetailScreenOffers('But more Save more',
-        "Get ₹20.00 back for every eligible item purchased with this offer."),
-    DetailScreenOffers(
-        'Bank Offer', "Upto ₹374.92 discount on select Credit card offers."),
-  ];
+
+class _ProductDetailsState extends State<ProductDetails> {
 
   late SharedPreferences srf;
 
@@ -62,12 +55,12 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   _checkProductIsInCart(){
     List<String> productName = cartList.map((e) => e.name).toList();
-    productName.forEach((element) {
+    for (var element in productName) {
       if(element == widget.name){
         setState(() {
           productIsInCart = true;
         });
-      }});
+      }}
   }
   _getCartList() async {
     srf = await SharedPreferences.getInstance();
@@ -298,7 +291,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       {
         return Row(
           children: [
-            Spacer(),
+            const Spacer(),
             MaterialButton(
               shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),

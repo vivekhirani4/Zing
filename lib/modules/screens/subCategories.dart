@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zing/details_page.dart';
-import 'package:zing/model.dart';
+import 'package:zing/modules/screens/details_page.dart';
+import 'package:zing/model/model.dart';
 
 class ListProduct extends StatefulWidget {
   final subCategoryList;
